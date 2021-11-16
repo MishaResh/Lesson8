@@ -5,18 +5,22 @@
 # структуры на реальных данных.
 
 
+def p_data(my_data: str):
+    print(f'p_data = {my_data}')
+    return True if my_data[:2].isdigit() else print('фигня')
+
+
 class Дата:
-
-    def __init__(self, my_data):
-        self.my_data = my_data
-        print(f'__init__{self.my_data}')
-
-    def p_data(self):
-        # print(f'p_data = {self.my_data}')
-        return print('True') if my_data[:2].isdigit() else print('фигня')
+    my_data = str
+    @staticmethod
+    def my_str(my_data: str):
+        dd = int(my_data[:2])
+        mm = int(my_data[my_data.find('-')+1:my_data.find('-',)+3])
+        yy = int(my_data[len(my_data)-4:len(my_data)])
+        return f'День -{dd} тип {type(dd)} Месяц - {mm} тип {type(mm)} Год - {yy} тип {type(yy)}'
     @classmethod
-    def isvlec(cls,my_data):
-        pass
+    def isvlec(cls, my_data: str):
+        return True if my_data[:2].isdigit() else print('фигня')
 
-n_data = Дата(input('Введите дату в формате ДД.ММ.ГГГГ'))
 
+print(Дата.my_str('22-10-2021'))
