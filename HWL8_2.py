@@ -7,7 +7,7 @@ class InError(Exception):
         self.my_inp = my_inp
 
     def __str__(self):
-        return f'Ваш знаменатель = {my_inp_2} деление на 0 невозможно'
+        return f'Ваш знаменатель = {self.my_inp} деление на 0 невозможно'
 
 while True:
     try:
@@ -17,7 +17,6 @@ while True:
             raise InError(my_inp_2)
     except ValueError:
         print("Вы ввели не число")
-        break
     except InError as err:
         print(err)
         break
